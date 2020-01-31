@@ -62,6 +62,6 @@ if($errors){
             echo "success";
         }
     }
-}
+
 
 ?> 

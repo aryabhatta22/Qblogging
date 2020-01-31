@@ -7,7 +7,6 @@ include('connection.php');
 //check user inputs
 //    define error messages
 $missingUserid='<p><strong>Please enter a username!</strong></p>';
-$invalidUserid='<p><strong>Please enter a valid user id. it does not exist in university database!</strong></p>';
 $missingEmail='<p><strong>Please enter your email address!</strong></p>';
 $invalidEmail='<p><strong>Please enter a valid email address!</strong></p>';
 $missingPassword='<p><strong>Please enter a Password!</strong></p>';
@@ -15,40 +14,41 @@ $invalidPassword='<p><strong>Your password should be at least 6 characters long 
 $missingType='<p><strong>Please select a user type!</strong></p>';
 $errors='';
 
-$type=$_POST["type"];
-$user_id=$_POST["user_id"];
-$email=$_POST["email"];
-$password=$_POST["password"];
+$type='';
+$user_id='';
+$email='';
+$password='';
 
 //Get username
-if(!$user_id){
-    $errors .= $missingUsername;
+if(empty($_POST["user_id"])){
+    $errors .= $missingUserid;
 }else{
-    $user_id = filter_var($user_id,FILTER_SANITIZE_STRING);
+    $user_id = filter_var($_POST["user_id"],FILTER_SANITIZE_STRING);
 }
 //Get email
-if(!$email){
+if(empty($_POST["email"])){
     $errors .= $missingEmail;
 }else{
-    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $errors .= $invalidEmail;
     }
 }
 //Get passwords
-if(!$password){
+if(empty($_POST["password"])){
     $errors .= $missingPassword;
-}elseif(!(strlen($password)>6 and preg_match('/[A-Z]/',$password) and preg_match('/[0-9]/',$password))){
+}elseif(!(strlen($_POST["password"])>6 and preg_match('/[A-Z]/',$_POST["password"]) and preg_match('/[0-9]/',$_POST["password"]))){
     $errors .= $invalidPassword;
 }else{
-    $password = filter_var($password, FILTER_SANITIZE_STRING); 
+    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING); 
 }
 
 //get user type
-if(!$type){
+if(empty($_POST["type"])){
     $errors.=$missingType;
+}else{
+    $type=$_POST["type"];
 }
-
 //If there are any errors print error
 if($errors){
     $resultMessage = '<div class="alert alert-danger">'. $errors .'</div>';

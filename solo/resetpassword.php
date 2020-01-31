@@ -1,6 +1,6 @@
 <!--This file receives the user_id and key generated to create the new password-->
 <!--This file displays a form to input new password-->
-
+<?php ob_start(); ?>
 <?php
 session_start();
 include('connection.php');
