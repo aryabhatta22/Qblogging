@@ -5,7 +5,7 @@ $config = array(
     "private_key_bits" => 1024,
     "private_key_type" => OPENSSL_KEYTYPE_RSA,
 );
-   
+$privKey=''; 
 $res = openssl_pkey_new($config);
 openssl_pkey_export($res, $privKey);
 
@@ -13,8 +13,9 @@ openssl_pkey_export($res, $privKey);
 $pubKey = openssl_pkey_get_details($res);
 $pubKey = $pubKey["key"];
 
-echo $pubKey;
 
+echo $pubKey;
+echo $privKey;
 // Private key: $privKey
 // public key: $pubKey
 
