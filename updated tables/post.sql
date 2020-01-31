@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2020 at 12:56 PM
+-- Generation Time: Jan 31, 2020 at 02:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -32,12 +32,14 @@ CREATE TABLE `post` (
   `post_id` int(4) NOT NULL,
   `user_id` varchar(10) NOT NULL,
   `status` int(2) NOT NULL,
-  `approve` int(3) NOT NULL,
-  `disapprove` int(3) NOT NULL,
+  `no_approve` int(4) NOT NULL,
+  `no_disapprove` int(4) NOT NULL,
   `milestone` int(3) NOT NULL,
+  `approve_point` int(4) NOT NULL,
+  `disapprove_point` int(4) NOT NULL,
   `title` varchar(100) NOT NULL,
   `data` varchar(1000) NOT NULL,
-  `time` date NOT NULL
+  `time` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
