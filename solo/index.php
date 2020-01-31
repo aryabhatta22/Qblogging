@@ -43,7 +43,7 @@ include('logout.php');
                     <li><a href="#">Contact us</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#loginModal" data-toggle="modal">Login</a></li>
+                    <li><a class='btn-l' href="#loginModal" data-toggle="modal">Login</a></li>
                   </ul>
               </div>
           </div>
@@ -52,7 +52,7 @@ include('logout.php');
       
       <div class="jumbotron" id="myContainer">
           <h1>QBlogging</h1><br><h3>Promoting quality blogging</h3>
-          <button type="button" class="btn green btn-lg signup" data-target="#signupModal" data-toggle="modal">Sign up-It's free</button>
+          <button type="button" class="btn btn-lg signup" data-target="#signupModal" data-toggle="modal">Sign up</button>
       </div>
        <!--Login form-->    
       <form method="post" id="loginform">
@@ -182,13 +182,6 @@ include('logout.php');
       </div>
       </div>
       </form>
-<!--      Footer-->
-      <div class="footer">
-          <div class="container">
-                <p>WebDevelopment Copyright &copy; <?php echo date("Y"); ?>. </p>
-          </div>
-      </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

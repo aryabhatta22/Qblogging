@@ -50,4 +50,4 @@ const BlockVerification = (
 
 //test
 
-// console.log(BlockVerification(4, 3, 5, 12, 35, 6, 0, 100));
+console.log(BlockVerification(4, 3, 5, 12, 35, 6, 0, 100));
