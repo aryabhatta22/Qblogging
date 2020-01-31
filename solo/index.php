@@ -93,7 +93,7 @@ include('logout.php');
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                   Cancel
                 </button>
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-target="signupModal" data-toggle="modal">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-target="#signupModal" data-toggle="modal">
                   Register
                 </button>  
               </div>
