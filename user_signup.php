@@ -1,9 +1,19 @@
+
+<?php
+session_start();
+include('connection.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Create an account</title>
-	<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
-
+	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <script type="text/javascript" src="jquery-3.4.1.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
 	<style type="text/css">
 		*
 		{
@@ -15,7 +25,7 @@
 		}
 
 		h1{
-			margin: 0px;
+			margin: 20px;
 		}
 
 		body
@@ -28,8 +38,8 @@
 		{
 		  width: 360px;
 		  background: #f1f1f1;
-		  height: 580px;
-		  padding: 20px 40px;
+		  /*height: 580px;*/
+		  padding: 10px 40px;
 		  border-radius: 10px;
 		  position: absolute;
 		  left: 50%;
@@ -40,14 +50,14 @@
 		.login-form h1
 		{
 		  text-align: center;
-		  margin-bottom: 60px;
+		  margin-bottom: 30px;
 		}
 
 		.txtb
 		{
 		  border-bottom: 2px solid #adadad;
 		  position: relative;
-		  margin: 30px 0;
+		  margin: 20px 0;
 		}
 
 		.txtb input
@@ -114,7 +124,7 @@
 
 		.bottom-text
 		{
-		  margin-top: 40px;
+		  margin-top: 30px;
 		  text-align: center;
 		  font-size: 13px;
 		}
@@ -145,34 +155,48 @@
 	</style>
 </head>
 <body>
-	<form action="index.html" class="login-form">
+	<form class="login-form" id="signupform" method="post">
         <h1>Sign Up</h1>
-        <div class="radio-btn">
-	        <input type="radio" name="profession" value="student"> Student &nbsp&nbsp&nbsp&nbsp
-			<input type="radio" name="profession" value="faculty"> Faculty
-		</div>
-        <div class="txtb">
-          <input type="text">
-          <span data-placeholder="User ID"></span>
+        <!-- error message -->
+        <div id="#signupmessage"></div>
+
+        <div class="form-group">
+        	<div class="radio-btn">
+		        <input type="radio" name="type" value="student"> Student &nbsp&nbsp&nbsp&nbsp
+				<input type="radio" name="type" value="faculty"> Faculty
+			</div>
         </div>
 
-        <div class="txtb">
-          <input type="email">
-          <span data-placeholder="Email"></span>
+        <div class="form-group">
+        	<div class="txtb">
+	          <input type="text" name="user_id" id="user_id">
+	          <span data-placeholder="User ID"></span>
+	        </div>
         </div>
 
-        <div class="txtb">
-          <input type="password">
-          <span data-placeholder="Password"></span>
+        <div class="form-group">
+        	<div class="txtb">
+	          <input type="email" name="email" id="email">
+	          <span data-placeholder="Email"></span>
+	        </div>
         </div>
 
-        <input type="submit" class="logbtn" value="Signup">
+        <div class="form-group">
+        	<div class="txtb">
+	          <input type="password" name="password" id="password">
+	          <span data-placeholder="Password"></span>
+	        </div>
+        </div>
+
+        <input type="submit" class="logbtn" value="Signup" name="signup">
+
 
         <div class="bottom-text">
           <h4> Already have an account? </h4> 
         </div>
         <div class="container">
-          <center><input type="submit" class="signbtn" value="Login"></center>
+          <center><a href="userlogin.php" class="btn btn-default pull-left">Login</a></center>
+          <center><a href="index.php" class="btn btn-default pull-right">Cancel</a></center>
         </div>
 
       </form>
@@ -186,6 +210,29 @@
         if($(this).val() == "")
         $(this).removeClass("focus");
       });
+
+      //Ajax Call for the sign up form
+		//Once the form is submitted
+		$("#signupform").submit(function(event){
+		    //prevent default php processing
+		    event.preventDefault();
+		    //collect user inputs
+		    var datatopost = $(this).serializeArray(); //make array of objects containing values of signup form
+		    $.ajax({
+		        url: "signup.php",
+		        type: "POST",
+		        data: datatopost,
+		        success: function(data){
+		            if(data){
+		         $("#signupmessage").html(data);
+		            }
+		        },
+		        error: function(){
+		            
+		            $("#signupmessage").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+		        }
+		    });
+		});
 
       </script>
 </body>

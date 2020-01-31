@@ -1,4 +1,5 @@
 <?php
+
 //Start session
 session_start();
 //Connect to the database
@@ -62,4 +63,5 @@ if($errors){
         }
     }
 }
-?>
+
+?> 
