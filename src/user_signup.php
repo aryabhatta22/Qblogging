@@ -172,7 +172,9 @@
           <h4> Already have an account? </h4> 
         </div>
         <div class="container">
-          <center><input type="submit" class="signbtn" value="Login"></center>
+          <input type="submit" class="signbtn" value="Login">
+          <input type="submit" class="signbtn" value="Cancel">
+
         </div>
 
       </form>
