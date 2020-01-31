@@ -1,0 +1,324 @@
+/*--------------------------------------------------------------*/
+/*Basic setup*/
+/*--------------------------------------------------------------*/
+
+*    {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html{
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix{zoom: 1}
+.clearfix{
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    
+}
+
+/*--------------------------------------------------------------*/
+/* Reusable components */
+/*--------------------------------------------------------------*/
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+    
+}
+
+section{
+    padding: 80px 0;
+    background-size: cover;
+    height: 100vh;
+}
+
+/*---------- Heading-------------------*/
+
+h1, h2{
+    font-weight: 300;
+    
+}
+
+h3{
+    font-weight: 200;
+}
+
+h1{
+     margin: 0;
+    margin-bottom: 0px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2{
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h3{
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.box{
+    padding: 1%;
+}
+
+.main-nav{
+    float: right;
+    list-style: none;
+    margin-top: 55px;
+}
+
+.main-nav li{
+    display: inline-block;
+    margin-left: 40px;
+    
+}
+
+.main-nav li a:link,
+.main-nav li a:visited{
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid #e67e22;
+}
+
+
+header{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(images/cover.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.hero-text-box{
+    position:absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.btn:link,
+.btn:visited,
+input[type=submit]{
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300; 
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+}.btn-full:link,
+.btn-full:visited,
+input[type=submit]{
+    background: #e67e22;
+    border: 1px solid #e67e22; 
+    color: #fff;
+    margin-right: 15px;
+}
+
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #e67e22; 
+    color: #e76e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active{
+    background: #cf6d17;
+    
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type=submit]{
+    
+    border: 1px solid #e67e22; 
+}
+
+
+.btn-ghost:hover,
+.btn-ghost:active{
+    border: 1px solid #e67e22; 
+    color: #fff;
+}
+
+/* Slideshow container */
+    .slideshow-container 
+    {
+      position: relative;
+      background: #fffff;
+    }
+
+    /* Slides */
+    .mySlides
+    {
+      display: none;
+      padding: 205px;
+      text-align: center;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next 
+    {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -30px;
+      padding: 16px;
+      color: #888;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next 
+    {
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover 
+    {
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+    }
+
+    /* The dot/bullet/indicator container */
+    .dot-container 
+    {
+        text-align: center;
+        padding: 20px;
+        background: #ddd;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot 
+    {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    /* Add a background color to the active dot/circle */
+    .active, .dot:hover 
+    {
+      background-color: #717171;
+    }
+
+    /* Add an italic font style to all quotes */
+    q 
+    {
+      font-style: italic;
+    }
+
+    /* Add a blue color to the author */
+    .author 
+    {
+      color: cornflowerblue;
+    }
+    .collapsible 
+    {
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active, .collapsible:hover 
+    {
+      background-color: #555;
+    }
+
+    .content 
+    {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
+
+.contact-form{
+    width: 60%;
+    margin: 0 auto;
+    position: center;
+    
+}
+
+input[type=text],
+input[type=email],
+select, textarea {
+    width: 100%;
+    display: inline-block;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {
+    outline: none;
+}
+
