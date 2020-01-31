@@ -28,10 +28,12 @@ const BlockVerification = (
   if (Decision) {
     if (status) {
       userCryptoCredits = userCryptoCredits + approvedRating;
+      // increase crypto of teachers with rating >=6 by given rating
     } else {
       userCryptoCredits =
         userCryptoCredits -
         (disapprovedRating * disapprovedNo) / (2 * milestone);
+      //decrease crypto of teacher with rating <6 by given rating
     }
   }
   return (result = {
