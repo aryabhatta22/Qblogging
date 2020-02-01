@@ -19,7 +19,7 @@ include('logout.php');
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="styling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-    
+    <script src="Javascript.js"></script>
     
   </head>
   <body>
@@ -187,7 +187,6 @@ include('logout.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="Javascript.js"></script>
     
   </body>
     
