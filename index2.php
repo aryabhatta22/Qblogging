@@ -19,7 +19,6 @@ include('logout.php');
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="styling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
-    <script src="Javascript.js"></script>
     
   </head>
   <body>
@@ -44,7 +43,7 @@ include('logout.php');
                     <li><a href="#">Contact us</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a class='btn-l' href="#loginModal" data-toggle="modal">Login</a></li>
+                    <li><a href="#loginModal" data-toggle="modal">Login</a></li>
                   </ul>
               </div>
           </div>
@@ -53,10 +52,10 @@ include('logout.php');
       
       <div class="jumbotron" id="myContainer">
           <h1>QBlogging</h1><br><h3>Promoting quality blogging</h3>
-          <button type="button" class="btn btn-lg signup" data-target="#signupModal" data-toggle="modal">Sign up</button>
+          <button type="button" class="btn green btn-lg signup" data-target="#signupModal" data-toggle="modal">Sign up-It's free</button>
       </div>
        <!--Login form-->    
-      <form method="post" id="loginform" action="script.php?token=userlogin">
+      <form method="post" id="loginform">
         <div class="modal" id="loginModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -94,7 +93,7 @@ include('logout.php');
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                   Cancel
                 </button>
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-target="#signupModal" data-toggle="modal">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-target="signupModal" data-toggle="modal">
                   Register
                 </button>  
               </div>
@@ -183,11 +182,18 @@ include('logout.php');
       </div>
       </div>
       </form>
+<!--      Footer-->
+      <div class="footer">
+          <div class="container">
+                <p>WebDevelopment Copyright &copy; <?php echo date("Y"); ?>. </p>
+          </div>
+      </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    
+    <script src="index.js"></script>
   </body>
     
 <!--    Image by <a href="https://pixabay.com/users/virin000-4559233/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2984108">virin000</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2984108">Pixabay</a>-->

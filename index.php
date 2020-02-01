@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('connection.php');
-include('logout.php');
+require_once('connection.php');
+require_once('logout.php');
 
 
 ?>
@@ -9,7 +9,7 @@ include('logout.php');
 <!DOCTYPE html>
 <html>
 <head>
-  <title>home page</title>
+  <title>home page old</title>
    <meta name="viewport" content="width=device-width, intial-scale=1.0"> 
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
@@ -43,8 +43,6 @@ include('logout.php');
         </div>
 
     </header>
-
-    <section class="section-features" id="feeds">
         
 <!-- post slideshow -->
 
@@ -194,7 +192,7 @@ include('logout.php');
 
 
     <!--Login form-->    
-      <form method="post" id="loginform">
+      <form class="form" method="post" id="loginform" action="javascript.js">
         <div class="modal" id="loginModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -242,7 +240,7 @@ include('logout.php');
       </form>
 
     <!--Sign up form--> 
-      <form method="post" id="signupform">
+      <form method="post" id="signupform" action="javascript.js">
         <div class="modal" id="signupModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -288,7 +286,7 @@ include('logout.php');
       </form>
 
     <!--Forgot password form-->
-      <form method="post" id="forgotpasswordform">
+      <form method="post" id="forgotpasswordform" action="javascript.js">
         <div class="modal" id="forgotpasswordModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -324,7 +322,6 @@ include('logout.php');
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      
 </body>
 
 </html>
