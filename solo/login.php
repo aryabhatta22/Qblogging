@@ -58,7 +58,7 @@ if($errors){
             $_SESSION['credit']=$row['credit'];
             $_SESSION['public_key']=$row['public_key'];
             $_SESSION['profession']=$row['profession'];
-            echo "success";
+            $_SESSION['dept_id']=$row['dept_id'];
     }
 }
 

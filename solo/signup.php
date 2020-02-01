@@ -94,7 +94,8 @@ $credit=0;
 if($type=="student"){
     $sql="SELECT * FROM student WHERE student_id='$user_id' AND email='$email'";
     $result=mysqli_query($link,$sql);
-    if(!$result){
+    $results = mysqli_num_rows($result);
+    if($results==0){
         echo '<div class="alert alert-danger">Invalid user!.User details are not found in university database!</div>'; 
         exit;
     }else{
@@ -106,7 +107,8 @@ if($type=="student"){
 }else{
     $sql="SELECT * FROM faculty WHERE faculty_id='$user_id' AND email='$email'";
     $result=mysqli_query($link,$sql);
-    if(!$result){
+    $results = mysqli_num_rows($result);
+    if($results==0){
         echo '<div class="alert alert-danger">Invalid user!.User details are not found in university database!</div>'; 
         exit;
     }else{
@@ -136,8 +138,8 @@ $activationKey = bin2hex(openssl_random_pseudo_bytes(16));
     //32 characters
 
 //now insert data in user table
-$publicKey='null';
-$sql2="INSERT INTO user (`user_id`,`password`,`name`,`dept_id`,`profession`,`email`,`credit`,`activation`,`public_key`) VALUES ('$user_id','$password',$name','$dept_id','$type','$email','$credit','$activationKey','$publicKey')";
+$publicKey='123';
+$sql2="INSERT INTO user (`user_id`,`password`,`name`,`dept_id`,`profession`,`email`,`credit`,`activation`,`public_key`) VALUES ('$user_id','$password','$name','$dept_id','$type','$email','$credit','$activationKey','$publicKey')";
 
 $result2 = mysqli_query($link, $sql2);
 if(!$result2){
@@ -147,7 +149,7 @@ if(!$result2){
 //Send the user an email with a link to activate.php with their email and activation code
 $message = "Please click on this link to activate your account:\n\n";
 
-$message .= "http://localhost/hack/Qblogging/activate.php?email=" . urlencode($email) . "&key=$activationKey";
+$message .= "http://localhost/hack/Qblogging/solo/activate.php?email=" . urlencode($email) . "&key=$activationKey";
 if(mail($email, 'Confirm your Registration', $message, 'From:'.'sk9971krishna@gmail.com')){
        echo "<div class='alert alert-success'>Thank for your registring! A confirmation email has been sent to $email. Please click on the activation link to activate your account.</div>";
 }

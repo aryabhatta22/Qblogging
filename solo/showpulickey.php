@@ -6,5 +6,5 @@
 	include('connection.php');
 
 	$publicKey=$_SESSION['public_key'];
-	echo '<div>Your public key is : $publicKey</div>';
+	echo "<div>Your public key is : ".$publicKey."</div>";
 ?>

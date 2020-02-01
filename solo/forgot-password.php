@@ -62,7 +62,7 @@ if(!$result){
             //Send email with link to resetpassword.php with user id and activation code
 
 $message = "Please click on this link to reset your password:\n\n";
-$message .= "http://localhost/hack/Qblogging/resetpassword.php?user_id=$user_id&key=$key";
+$message .= "http://localhost/hack/Qblogging/solo/resetpassword.php?user_id=$user_id&key=$key";
 if(mail($email, 'Reset your password', $message, 'From:'.'sk9971krishna@gmail.com')){
         //If email sent successfully
                 //print success message

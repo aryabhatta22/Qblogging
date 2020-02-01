@@ -5,10 +5,6 @@ $("#signupform").submit(function(event){
     event.preventDefault();
     //collect user inputs
     var datatopost = $(this).serializeArray(); //make array of objects containing values of signup form
-//    console.log(datatopost);
-    //send them to signup.php using Ajax (using ajax or post method)
-    //   $.post({}).done()
-    //   .fail();
     $.ajax({
         url: "signup.php",
         type: "POST",
@@ -40,11 +36,11 @@ $("#loginform").submit(function(event){
         url: "login.php",
         type: "POST",
         data: datatopost,
-        success: function(returneddata){
-            if(returneddata == "success"){
-                window.location = "profile.php";
-            }else{
+        success: function(data){
+            if(data){
                 $('#loginmessage').html(data);   
+            }else{
+                window.location = "profile.php";
             }
         },
         error: function(){

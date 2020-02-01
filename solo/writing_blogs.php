@@ -35,15 +35,15 @@ include('connection.php');
             <textarea class="form-control input-lg" id="data" name="data" rows="8"></textarea>
           </div>
           <br>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <span class="form-group-addon input-lg" id="inputlg">Private Key</span>
             <textarea class="form-control input-lg" id="privateKey" name="privateKey" rows="5"></textarea>
-          </div>
-          <br>
+          </div> -->
+          <!-- <br> -->
 <!--            <button type="button" class="btn btn-primary pull-right" id="submitBlog">Create Blog</button>-->
           
            <input class="btn btn-primary pull-right" name="post" type="submit" value="Create Blog">
-            <a href="index.php" class="btn btn-danger">Cancel</a>
+            <a href="profile.php" class="btn btn-danger">Cancel</a>
           <br>
           <br>
       </form>

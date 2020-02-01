@@ -63,10 +63,9 @@ $result = mysqli_query($link, $sql);
     //If query is successful, show success message and invite user to login
 if(mysqli_affected_rows($link) == 1){
     echo '<div class="alert alert-success">Your account has been activated.</div>
-    <div class="alert alert-danger">Please write your private key somewhere or save it in a file. You will not be able to get it later if lost it !. it is mandatory not a choice and it is very confidential!</div>
-    <div>Private key : $privKey<br>
-    Public Key : $pubKey</div>
-    ';
+    <div class="alert alert-danger">Please write your private key somewhere or save it in a file. You will not be able to get it later if lost it !. it is mandatory not a choice and it is very confidential!</div>';
+    echo "Private key:".$privKey."<br>";
+    echo "Publlic key:".$pubKey;
     echo '<a href="index.php" type="button" class="btn-lg btn-sucess">Log in<a/>';
     
 }else{

@@ -29,24 +29,26 @@ if(empty($_POST["data"])){
 
 //check for validity of private key
 
-
-
 //get private key
-if(empty($_POST["privateKey"])){
-    $errors .= $missingPrivateKey;
-}else{
-    $publicKey=$_SESSION['public_key'];
-    $privateKey=$_POST["privateKey"];
-    //verifying public and private key
-    $data2 = "Verified";
-    openssl_sign($data2, $raw_signature, $privateKey);
-    $signature = base64_encode($raw_signature);
-    $raw_signature = base64_decode($signature);
-    $result = openssl_verify($data2, $raw_signature, $publicKey);
-    if($result==0){
-        $errors.=$invalidPrivateKey;
-    }
-}
+// if(empty($_POST["privateKey"])){
+//     $errors .= $missingPrivateKey;
+// }else{
+//     $publicKey=$_SESSION['public_key'];
+//     $privateKey=$_POST["privateKey"];
+
+//     $pubKey=$publicKey;
+//     $privKey=$privateKey;
+//     echo $privKey;
+//     //verifying public and private key
+//     $data2 = "Verified";
+//     openssl_sign($data2, $raw_signature, $privKey);
+//     $signature = base64_encode($raw_signature);
+//     $raw_signature = base64_decode($signature);
+//     $result = openssl_verify($data2, $raw_signature, $publicKey);
+//     if($result==0){
+//         $errors.=$invalidPrivateKey;
+//     }
+// }
 //if there are any errors print error
 if($errors){
     $resultMessage = '<div class="alert alert-danger">'. $errors .'</div>';
@@ -73,7 +75,7 @@ $no_disapprove=0;
 $milestone=0;
 $approve_point=0;
 $disapprove_point=0;
-$dept_id=$row['dept_id'];
+$dept_id=$_SESSION['dept_id'];
 
 //check for usertype
 if($_SESSION['profession']=="faculty"){
@@ -83,9 +85,11 @@ if($_SESSION['profession']=="faculty"){
     $sql2="SELECT user_id FROM user WHERE profession='faculty' AND dept_id='$dept_id'";
     $result2=mysqli_query($link, $sql2);
     $facultySize=mysqli_num_rows($result2);
-    $milstone=floor(facultySize/2)+1;
+    $milstone=floor($facultySize/2)+1;
     
 }
+
+
 //run query to store post in post table
 $sql3="INSERT INTO post (`user_id`,`status`,`no_approve`,`no_disapprove`,`milestone`,`approve_point`,`disapprove_point`,`title`,`data`,`time`) VALUES ('$user_id','$status','$no_approve','$no_disapprove','$milestone','$approve_point','$disapprove_point','$title','$data','$time')";
 
@@ -94,7 +98,7 @@ $result3 = mysqli_query($link, $sql3);
 if(!$result3){
     echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
     exit;
-}else{
-    echo "<div class='alert alert-success'>Thank for your post!, It has been submitted for verification by faculty of your department!</div>";
 }
+
+    echo "<div class='alert alert-success'>Thank for your post!, It has been submitted for verification by faculty of your department!</div>";
 ?>
