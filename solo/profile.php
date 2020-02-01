@@ -127,6 +127,7 @@ while($roww1 =mysqli_fetch_assoc($res1))
           <?php
           foreach($user as $usr)
           {
+        
           ?>
             <div class="col-sm-3">
                   <div class="card">
@@ -140,7 +141,6 @@ while($roww1 =mysqli_fetch_assoc($res1))
                                     <div class="card-body">
                                       <h5 class="card-title"><?php echo $usr['name']; ?></h5>
                                       <p class="card-text"><?php echo $usr['user_id']; ?></p>
-                                      <p class="card-text"><?php echo $usr['dept_id'] ?></p>
                                         <p class="card-text"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt=""><?php echo $usr['credit'] ?></p>
                                       <a href="showpulickey.php" class="btn btn-primary">Show Public Key</a>
                                     </div>
@@ -160,19 +160,19 @@ while($roww1 =mysqli_fetch_assoc($res1))
                   <div class="card">
                         <div class="card-body">
                           
-                            <div class="card-body" style="border-color:beige; background-color: #f5f5f0;">
+                            <div class="card-body" style="border-color:beige; margin-top: 1.6em; background-color: #f5f5f0;">
                                 <div class="row">
-                                    <div class="col-sm-2"><img src=".\images\a1.jpg" class="img-thumbnail" alt="" width="50" height="50"></div>
-                                    <div class="col-sm-6">User Id</div>
+                                    <div class="col-sm-2" style="margin-top: 1em; margin-left: 1.5em;"><img src=".\images\a1.jpg" class="img-thumbnail" alt="" width="50" height="50"></div>
+                                    <div class="col-sm-6" style="margin-top: 2em;">User Id</div>
                                 </div>
                               <hr>
                             <blockquote class="blockquote mb-0">
-                              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h3>
-                                jhwsdshdjskdeskfesfjesfrkfrdfr<br>
-                                sedehdhefefejfeifdiej<br>
-                                sdgasdhhdjwdjwj
-                              <footer class="blockquote-footer"> <cite title="Source Title">author</cite>
+                              <h3>Microsoft Research introduced a new NN model that beats Google and the others<br>
                                 <br>
+                              <footer class="blockquote-footer" style="font-weight: 5em;"> MS researcher recently introduced a new deep ( indeed very deep) NN model (PReLU Net) [1] and they push the state of art in ImageNet 2012 dataset from 6.66% (GoogLeNet) to 4.94% top-5 error rate.
+
+In this work, they introduce an alternation of well-known ReLU activation function. They call it PReLu (Parametric Rectifier Linear Unit). 
+                                <br><br>
                                 <cite>10:00:00</cite></footer>
                             </blockquote>
                             </div>
@@ -181,7 +181,7 @@ while($roww1 =mysqli_fetch_assoc($res1))
             </div>
 
 
-            <div class="col-sm-1" style="margin-left:0px; margin-right:-50px;">
+            <div class="col-sm-1" style="margin-left:0px; margin-right:-50px; margin-top: 0.3em;">
                   <div class="card" style="width:20em;">
                       <div class="card-body">
                         
@@ -189,15 +189,15 @@ while($roww1 =mysqli_fetch_assoc($res1))
                               <hr width="20%" align="left">
                               <div class="row">
                                   
-                                  <div class="col-sm-1"><img src=".\images\a1.jpg" class="img-thumbnail" alt="" width="50" height="50"></div><div class="col-sm-1">John Doe</div><div class="col-sm-1"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">10</div>
+                                  <div class="col-sm-1"><img src=".\images\a1.jpg" class="img-thumbnail" alt="" width="50" height="50"></div><div class="col-sm-1" style="color:white; margin-top: 0.6em;">John Doe</div><div class="col-sm-1"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">10</div>
                               </div>
                               <hr width="20%" align="left">
                               <div class="row">
-                                  <div class="col-sm-1"><img src=".\images\a2.png" class="img-thumbnail" alt="" width="50" height="50"></div><div class="col-sm-1">John Doe</div><div class="col-sm-1"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">20</div>
+                                  <div class="col-sm-1"><img src=".\images\a2.png" class="img-thumbnail" alt="" width="50" height="50"></div><div class="col-sm-1" style="color:white; margin-top: 0.6em;">John Doe</div><div class="col-sm-1"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">20</div>
                               </div>
                               <hr width="20%" align="left">
                               <div class="row">
-                                  <div class="col-sm-1"><img src=".\images\a2.png" class="img-thumbnail" alt="" width="50" height="50"></div><div class="col-sm-1">John Doe</div><div class="col-sm-1"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">40</div>
+                                  <div class="col-sm-1"><img src=".\images\a2.png" class="img-thumbnail" alt="" width="50" height="50"></div><div class="col-sm-1" style="color:white; margin-top: 0.6em;">John Doe</div><div class="col-sm-1"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">40</div>
                               </div>
                               <hr width="20%" align="left">
                       </div>
@@ -205,6 +205,8 @@ while($roww1 =mysqli_fetch_assoc($res1))
                 </div>
             
           </div>
+
+
         </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

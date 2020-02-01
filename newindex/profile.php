@@ -51,6 +51,7 @@ while($roww1 =mysqli_fetch_assoc($res1))
 //echo count($empl0);
 //print_r($user);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -127,6 +128,9 @@ while($roww1 =mysqli_fetch_assoc($res1))
           <?php
           foreach($user as $usr)
           {
+            $q = "SELECT * FROM department WHERE dept_id=$usr['dept_id']";
+            $qrun=mysqli_query($conn,$q);
+            $qrow=mysqli_fetch_array($qrun);
           ?>
             <div class="col-sm-3">
                   <div class="card">
@@ -140,7 +144,7 @@ while($roww1 =mysqli_fetch_assoc($res1))
                                     <div class="card-body">
                                       <h5 class="card-title"><?php echo $usr['name']; ?></h5>
                                       <p class="card-text"><?php echo $usr['user_id']; ?></p>
-                                      <p class="card-text"><?php echo $usr['dept_id'] ?></p>
+                                      <p class="card-text"><?php echo $qrow['dept_id'] ?></p>
                                         <p class="card-text"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt=""><?php echo $usr['credit'] ?></p>
                                       <a href="showpulickey.php" class="btn btn-primary">Show Public Key</a>
                                     </div>
