@@ -39,7 +39,7 @@ if($errors){
     $password = mysqli_real_escape_string($link, $password);
     $password = hash('sha256', $password);
             //Run query: Check combinaton of email & password exists
-    $sql = "SELECT * FROM users WHERE user_id='$user_id' AND password='$password' AND activation='activated'";
+    $sql = "SELECT * FROM user WHERE user_id='$user_id' AND password='$password' AND activation='activated'";
     $result = mysqli_query($link, $sql);
     if(!$result){
         echo '<div class="alert alert-danger">Error running the query!</div>';
@@ -49,8 +49,7 @@ if($errors){
     $count = mysqli_num_rows($result);
     if($count !== 1){
         echo '<div class="alert alert-danger">Wrong Username or Password</div>';
-    }
-    else {
+    }else {
             //log the user in: Set session variables
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $_SESSION['user_id']=$row['user_id'];
@@ -60,8 +59,8 @@ if($errors){
             $_SESSION['public_key']=$row['public_key'];
             $_SESSION['profession']=$row['profession'];
             echo "success";
-        }
     }
+}
 
 
 ?> 

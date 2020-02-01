@@ -19,6 +19,7 @@ include('logout.php');
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="styling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <script src="Javascript.js"></script>
     
   </head>
   <body>
@@ -186,7 +187,7 @@ include('logout.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="index.js"></script>
+    
   </body>
     
 <!--    Image by <a href="https://pixabay.com/users/virin000-4559233/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2984108">virin000</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2984108">Pixabay</a>-->

@@ -61,7 +61,7 @@ $user_id = mysqli_real_escape_string($link, $user_id);
 $email = mysqli_real_escape_string($link, $email);
 
 //If userid exists in the users table print error
-$sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+$sql = "SELECT * FROM user WHERE user_id = '$user_id'";
 $result = mysqli_query($link, $sql);
 if(!$result){
     echo '<div class="alert alert-danger">Error running the query!</div>';
@@ -75,7 +75,7 @@ if($results){
 }
 //else
 //If email exists in the users table print error
-$sql = "SELECT * FROM users WHERE email = '$email'";
+$sql = "SELECT * FROM user WHERE email = '$email'";
 $result = mysqli_query($link, $sql);
 if(!$result){
     echo '<div class="alert alert-danger">Error running the query!</div>'; 
@@ -94,7 +94,7 @@ $credit=0;
 if($type=="student"){
     $sql="SELECT * FROM student WHERE student_id='$user_id' AND email='$email'";
     $result=mysqli_query($link,$sql);
-    if(!result){
+    if(!$result){
         echo '<div class="alert alert-danger">Invalid user!.User details are not found in university database!</div>'; 
         exit;
     }else{
@@ -104,9 +104,9 @@ if($type=="student"){
         $credit=100;
     }
 }else{
-    $sql="SELECT * FROM faculty WHERE faculty_id='$faculty_id' AND email='$email'";
+    $sql="SELECT * FROM faculty WHERE faculty_id='$user_id' AND email='$email'";
     $result=mysqli_query($link,$sql);
-    if(!result){
+    if(!$result){
         echo '<div class="alert alert-danger">Invalid user!.User details are not found in university database!</div>'; 
         exit;
     }else{
@@ -136,10 +136,11 @@ $activationKey = bin2hex(openssl_random_pseudo_bytes(16));
     //32 characters
 
 //now insert data in user table
-$sql="INSERT INTO user (`user_id`,`password`,`name`,`dept_id`,`profession`,`email`,`credit`,`activation`) VALUES ('$user_id','$password',$name','$dept_id','$type','$email','$credit','$activationKey')";
+$publicKey='null';
+$sql2="INSERT INTO user (`user_id`,`password`,`name`,`dept_id`,`profession`,`email`,`credit`,`activation`,`public_key`) VALUES ('$user_id','$password',$name','$dept_id','$type','$email','$credit','$activationKey','$publicKey')";
 
-$result = mysqli_query($link, $sql);
-if(!$result){
+$result2 = mysqli_query($link, $sql2);
+if(!$result2){
     echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
     exit;
 }

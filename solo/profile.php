@@ -1,11 +1,55 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header("location: index.php");
+}
+include('connection.php');
 
+$user_id = $_SESSION['user_id'];
+$name=$_SESSION['name'];
+$credit=$_SESSION['credit'];
+$departmentId='';
+$departmentName='';
+//get username and email
+$sql = "SELECT * FROM user WHERE user_id='$user_id'";
+$result = mysqli_query($link, $sql);
+
+if(!$result){
+    echo '<div class="alert alert-danger">There was an error running sql query!</div>';
+    exit;
+}
+
+$count = mysqli_num_rows($result);
+
+if($count == 1){
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
+    $departmentId = $row['dept_id'];
+    $sql="SELECT * FROM department WHERE dept_id='$departmentId'";
+    $result=mysqli_query($link, $sql);
+    if(!$result){
+    echo '<div class="alert alert-danger">There was an error running sql query!</div>';
+    exit;
+    }else{
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
+      $departmentName=$row['departmentName'];
+    }
+}else{
+    echo "<div class='alert alert-danger' style='margin-top:55px'>There was an error retrieving the username and email from the database</div>";   
+}
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>My Posts</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styling.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
        <style>
         img{
             border-top-left-radius: 4px;
@@ -50,8 +94,8 @@
     </ul>
       
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-edit"></span> Write Post</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+      <li><a href="writing_blogs.php"><span class="glyphicon glyphicon-edit"></span> Write Post</a></li>
+      <li><a href="index.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
     </ul>
   </div>
 </nav>
@@ -67,11 +111,11 @@
         <img src=".\images\a1.jpg" class="rounded float-left" alt="...">
 <div class=" well well-lg">
   <div class="card-body">
-    <h5 class="card-title">Name</h5>
-    <p class="card-text">user_id</p>
-    <p class="card-text">dept_name</p>
-      <p class="card-text"><img src="..\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt="">CryptoCredits</p>
-    <a href="#" class="btn btn-primary">Show Public Key</a>
+    <h5 class="card-title"><?php echo $name?></h5>
+    <p class="card-text"><?php echo $user_id ?></p>
+    <p class="card-text"><?php echo $departmentName ?></p>
+      <p class="card-text"><img src=".\images\cryptocreditLogo.png" style="width:1.5em; height:1.5em; border-color: white" class="img-rounded" alt=""><?php echo $credit ?></p>
+    <a href="showpulickey.php" class="btn btn-primary">Show Public Key</a>
   </div>
 </div>
         </div>
@@ -79,7 +123,7 @@
       </div>
     </div>
   </div>
-                                       <div class="col-sm-8">
+  <div class="col-sm-8">
     <div class="card">
       <div class="card-body">
         
@@ -128,5 +172,10 @@
 </div>
         </div>
     </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="mynotes.js"></script>
 </body>
 </html>

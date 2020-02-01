@@ -40,9 +40,9 @@ $("#loginform").submit(function(event){
         url: "login.php",
         type: "POST",
         data: datatopost,
-        success: function(data){
-            if(data == "success"){
-                window.location = "mainpageloggedin.php";
+        success: function(returneddata){
+            if(returneddata == "success"){
+                window.location = "profile.php";
             }else{
                 $('#loginmessage').html(data);   
             }
